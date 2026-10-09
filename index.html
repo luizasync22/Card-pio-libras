@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardápio em Libras</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: transparent;
+}
+.libras-widget {
+  position: fixed;
+  right: 15px;
+  bottom: 20px;
+  z-index: 999999;
+}
+.libras-button {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: none;
+  background: #5b2bbf;
+  color: white;
+  font-size: 32px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,.3);
+  transition: transform .2s;
+}
+.libras-button:hover {
+  transform: scale(1.08);
+}
+.libras-modal {
+  display: none;
+  position: fixed;
+  right: 15px;
+  bottom: 95px;
+  width: 360px;
+  max-width: calc(100vw - 30px);
+  max-height: 70vh;
+  overflow-y: auto;
+  background: white;
+  border-radius: 15px;
+  padding: 18px 14px;
+  box-shadow: 0 5px 25px rgba(0,0,0,.3);
+  z-index: 1000000;
+}
+.libras-modal h2 {
+  color: #5b2bbf;
+  font-size: 21px;
+  margin: 4px 30px 8px 0;
+}
+.intro {
+  color: #666;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+.libras-modal h3 {
+  font-size: 15px;
+  color: #333;
+  margin: 18px 0 8px;
+  padding-bottom: 7px;
+  border-bottom: 2px solid #e6ddfa;
+}
+.video-link {
+  display: block;
+  margin: 7px 0;
+  padding: 12px;
+  border-radius: 9px;
+  background: #f5f1ff;
+  color: #4c249c;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #e6ddfa;
+}
+.video-link:hover {
+  background: #e9dfff;
+}
+.close-button {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  border: none;
+  background: transparent;
+  font-size: 23px;
+  cursor: pointer;
+  color: #555;
+}
+</style>
+</head>
+<body>
+<div class="libras-widget">
+  <button
+    class="libras-button"
+    id="librasButton"
+    aria-label="Abrir cardápio em Libras"
+    aria-expanded="false"
+    onclick="toggleLibras()">
+    🤟
+  </button>
+  <div class="libras-modal" id="librasModal">
+    <button
+      class="close-button"
+      aria-label="Fechar cardápio"
+      onclick="toggleLibras()">
+      ✕
+    </button>
+    <h2>🤟 Cardápio em Libras</h2>
+    <p class="intro">
+      Escolha um item para assistir ao vídeo correspondente em Libras.
+    </p>
+    <h3>🌭 Cachorro-quente</h3>
+    <a class="video-link"
+       href="https://youtu.be/iEiZbdYbgGY"
+       target="_blank" rel="noopener noreferrer">
+      ▶ Dog tradicional
+    </a>
+    <a class="video-link"
+       href="https://youtu.be/gw3R2BsgXFM"
+       target="_blank" rel="noopener noreferrer">
+      ▶ Dog de bacon
+    </a>
+    <h3>🍕 Pizzas</h3>
+    <a class="video-link"
+       href="https://youtu.be/fs-BLCdTo5s"
+       target="_blank" rel="noopener noreferrer">
+      ▶ Pizza de chocolate
+    </a>
+    <a class="video-link"
+       href="https://youtu.be/oprB3WGg6nI"
+       target="_blank" rel="noopener noreferrer">
+      ▶ Pizza de queijo
+    </a>
+    <a class="video-link"
+       href="https://youtu.be/FvRalNVsaJ4"
+       target="_blank" rel="noopener noreferrer">
+      ▶ Pizza de calabresa
+    </a>
+    <a class="video-link"
+       href="https://youtu.be/pz3leeeXYoY"
+       target="_blank" rel="noopener noreferrer">
+      ▶ Pizza de frango com catupiry
+    </a>
+    <a class="video-link"
+       href="https://youtu.be/TU7NrcXZzs0"
+       target="_blank" rel="noopener noreferrer">
+      ▶ Pizza portuguesa
+    </a>
+    <h3>🥤 Bebidas</h3>
+    <a class="video-link"
+       href="https://youtu.be/U2f34pCsl28"
+       target="_blank" rel="noopener noreferrer">
+      ▶ Coca-Cola
+    </a>
+    <a class="video-link"
+       href="https://youtu.be/KmkZp6UXZGM"
+       target="_blank" rel="noopener noreferrer">
+      ▶ Sprite
+    </a>
+    <a class="video-link"
+       href="https://youtu.be/kKJW2Qzg1-o"
+       target="_blank" rel="noopener noreferrer">
+      ▶ Fanta uva
+    </a>
+    <a class="video-link"
+       href="https://youtu.be/xRcFvIdO5Bg"
+       target="_blank" rel="noopener noreferrer">
+      ▶ Fanta laranja
+    </a>
+  </div>
+</div>
+<script>
+function toggleLibras() {
+  const modal = document.getElementById("librasModal");
+  const button = document.getElementById("librasButton");
+  const isOpen = modal.style.display === "block";
+  modal.style.display = isOpen ? "none" : "block";
+  button.setAttribute("aria-expanded", String(!isOpen));
+}
+</script>
+</body>
+</html>
